@@ -12,10 +12,13 @@ class App extends Component {
       <div className="App">
         <div className="Feedback">
           <svg height={100} className="GameBox">
-            <circle cx={15} cy={90} r={10} fill="red" />
-            <rect x={5} y={60} width={20} height={20}/>
-            <rect className="level-item" x={150} y={0} width={20} height={20}/>
-            <rect className="level-item" x={200} y={80} width={20} height={20}/>
+            <svg>
+              <circle className={"wheel"} cx={20} cy={90} r={10} fill="white" stroke="black" />
+              <rect x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
+            </svg>
+
+            {/* <rect className="level-item" x={150} y={0} width={20} height={20}/> */}
+            <rect className="level-item" x={150} y={80} width={20} height={20}/>
 
           </svg>
         </div>
@@ -26,6 +29,7 @@ class App extends Component {
           <div> botty.headAction() </div>
           <div> botty.backPackAction() </div>
         </div>
+        <button>Go!</button>
       </div>
     );
   }

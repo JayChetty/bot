@@ -15,6 +15,10 @@
   height: 80px;
 }
 
+.wheel{
+  /*animation: move-wheel infinite 20s linear;*/
+}
+
 .level-item{
   animation: move-left infinite 20s linear;
 }
@@ -35,8 +39,13 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes move-wheel {
+  from { transform: translateX(0px); }
+  to {transform: translateX(450px);}
+}
+
 
 @keyframes move-left {
   from { transform: translateX(0px); }
-  to {transform: translateX(-150px);}
+  to {transform: translateX(-550px);}
 }
