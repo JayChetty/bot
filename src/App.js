@@ -11,7 +11,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Feedback">
-          <img src={logo} className="App-logo" alt="logo" />
+          <div className="GameBox">
+            <svg>
+              <circle className="circle" cx={50} cy={50} r={10} fill="red" />
+            </svg>
+          </div>
         </div>
         <div className="Instructions">
           <div>Head head = new Head();</div>

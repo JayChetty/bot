@@ -2,9 +2,18 @@
   text-align: center;
 }
 
+.GameBox{
+  width:200px;
+  border: 1px solid black;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+}
+
+.circle{
+  animation: move-left infinite 20s linear;
 }
 
 .App-header {
@@ -21,4 +30,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+@keyframes move-left {
+  from { transform: translateX(0px); }
+  to {transform: translateX(-100px);}
 }
