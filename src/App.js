@@ -11,11 +11,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Feedback">
-          <div className="GameBox">
-            <svg>
-              <circle className="circle" cx={50} cy={50} r={10} fill="red" />
-            </svg>
-          </div>
+          <svg height={100} className="GameBox">
+            <circle cx={15} cy={90} r={10} fill="red" />
+            <rect x={5} y={60} width={20} height={20}/>
+            <rect className="level-item" x={150} y={0} width={20} height={20}/>
+            <rect className="level-item" x={200} y={80} width={20} height={20}/>
+
+          </svg>
         </div>
         <div className="Instructions">
           <div>Head head = new Head();</div>

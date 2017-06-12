@@ -1,9 +1,12 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .GameBox{
-  width:200px;
+  width:300px;
   border: 1px solid black;
 }
 
@@ -12,7 +15,7 @@
   height: 80px;
 }
 
-.circle{
+.level-item{
   animation: move-left infinite 20s linear;
 }
 
@@ -35,5 +38,5 @@
 
 @keyframes move-left {
   from { transform: translateX(0px); }
-  to {transform: translateX(-100px);}
+  to {transform: translateX(-150px);}
 }
