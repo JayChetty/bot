@@ -18,7 +18,7 @@
 /*.jump{
   animation: jump infinite 1s linear;
   animation-delay: 1s;
-}
+}*/
 
 .robot-head{
   animation: move-wheel infinite 0.5s linear;
@@ -29,8 +29,8 @@
 }
 
 .spoke{
-  animation: App-logo-spin infinite 5s linear;
-}*/
+  animation: spin infinite 5s linear;
+}
 
 /*.drift-left{
   animation:move-left 3s linear , move-left-2 3s linear 4s;
@@ -86,30 +86,16 @@
   font-size: large;
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg);}
+}
 
 @keyframes move-wheel {
   from { transform: translateY(0px); }
   to {transform: translateY(-1px);}
 }
 
-
-@keyframes move-left {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-50px);
-  }
-}
-
-@keyframes move-left-2 {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-50px);
-  }
-}
 
 @keyframes jump {
   from { transform: translateY(0px); }
