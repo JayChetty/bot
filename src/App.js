@@ -19,6 +19,7 @@ class App extends Component {
   _handleClick(){
     console.log("started")
     this.setState({started: true})
+    setTimeout( () => this.setState({started: false}), 1000 )
   }
   render() {
     if(this.state.started){
