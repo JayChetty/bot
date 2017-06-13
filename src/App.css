@@ -1,3 +1,7 @@
+/*animation: [animation-name] [animation-duration] [animation-timing-function]
+[animation-delay] [animation-iteration-count] [animation-direction]
+[animation-fill-mode] [animation-play-state];*/
+
 .App {
   text-align: center;
   display: flex;
@@ -10,18 +14,66 @@
   border: 1px solid black;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+/*.jump{
+  animation: jump infinite 1s linear;
+  animation-delay: 1s;
 }
 
-.wheel{
-  /*animation: move-wheel infinite 20s linear;*/
+.robot-head{
+  animation: move-wheel infinite 0.5s linear;
 }
 
-.level-item{
+.robot-body{
+  animation: move-wheel infinite 0.5s linear;
+}
+
+.spoke{
+  animation: App-logo-spin infinite 5s linear;
+}*/
+
+/*.drift-left{
+  animation:move-left 3s linear , move-left-2 3s linear 4s;
+  transition-delay: */
+  /*animation-name: move-left;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards
+
+}
+
+.drift-left-2{
+  /*animation: move-left-2 3s linear 4s;*/
+  /*animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;*/
+  /*animation-delay: 4s;*/
+/*}*/
+
+.vertical-spoke{
+  transform-origin: left;
+}
+
+.horizontal-spoke{
+  transform-origin: top;
+}
+
+.main{
+  transition-property: transform;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+}
+
+.moved{
+  transform: translateX(-30px);
+}
+
+
+/*.level-item{
   animation: move-left infinite 20s linear;
-}
+}*/
 
 .App-header {
   background-color: #222;
@@ -34,18 +86,32 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 @keyframes move-wheel {
-  from { transform: translateX(0px); }
-  to {transform: translateX(450px);}
+  from { transform: translateY(0px); }
+  to {transform: translateY(-1px);}
 }
 
 
 @keyframes move-left {
-  from { transform: translateX(0px); }
-  to {transform: translateX(-550px);}
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes move-left-2 {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes jump {
+  from { transform: translateY(0px); }
+  to {transform: translateY(-50px);}
 }
