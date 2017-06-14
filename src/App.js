@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CodeMirror from 'react-codemirror';
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/mode/javascript/javascript'
+import {connect} from 'react-redux'
+// import CodeMirror from 'react-codemirror';
+// import 'codemirror/lib/codemirror.css'
+// import 'codemirror/mode/javascript/javascript'
 
 // const code = "Head head = new Head();Backpack backPack = new BackPack();Bot botty = new Bot(Head head, BackPack backpack);"
 const instructions = ["move", "move"]
@@ -11,30 +12,34 @@ const ground = ["flat", "flat", "flat", "finish" ]
 
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {instructionNum: 0, doingInstruction: false}
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {instructionNum: 0, doingInstruction: false}
+  // }
 
   _handleClick(){
     console.log("started")
-    this.setState({doingInstruction: true})
-    setTimeout( () => this.setState({doingInstruction: false, instructionNum: this.state.instructionNum + 1 }), 1000 )
+    // this.setState({doingInstruction: true})
+    this.props.dispatch({type: "DO_INSTRUCTION"})
+    setTimeout( ()=>{
+      this.props.dispatch({type: "FINISH_INSTRUCTION"})
+      // this.setState({doingInstruction: false, instructionNum: this.state.instructionNum + 1 }
+    }, 1000 )
   }
   render() {
-    const instruction = instructions[ this.state.instructionNum ]
-    let numMoves = this.state.instructionNum //works for now
-    if(this.state.doingInstruction){ numMoves++ }//doing instruction move to predicted position
+    // const instruction = instructions[ this.state.instructionNum ]
+    let numMoves = this.props.instruction//works for now
+    if(this.props.doingInstruction){ numMoves++ }//doing instruction move to predicted position
     return (
       <div className="App">
         <div className="Feedback">
           <svg height={100} className="GameBox">
             <svg>
-              <rect className={this.state.doingInstruction ? "robot-move" : ""}x={15} y={50} width={10} height={10} fill="white" stroke="black"/>
-              <rect className={this.state.doingInstruction ? "robot-move" : ""}x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
+              <rect className={this.props.doingInstruction ? "robot-move" : ""}x={15} y={50} width={10} height={10} fill="white" stroke="black"/>
+              <rect className={this.props.doingInstruction ? "robot-move" : ""}x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
               <circle className={"jump"} cx={20} cy={90} r={10} fill="white" stroke="black" />
-              <line className={this.state.doingInstruction ? "robot-wheel-spin vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke-width="1" stroke="black"/>
-              <line className={this.state.doingInstruction ? "robot-wheel-spin  horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke-width="1" stroke="black"/>
+              <line className={this.props.doingInstruction ? "robot-wheel-spin vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke-width="1" stroke="black"/>
+              <line className={this.props.doingInstruction ? "robot-wheel-spin  horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke-width="1" stroke="black"/>
             </svg>
 
             {/* <rect className="level-item" x={150} y={0} width={20} height={20}/> */}
@@ -58,8 +63,11 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = state => state
+const mapDispatchToProps = (dispatch)=>{
+  return { dispatch: dispatch }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 //
 // <div>Head head = new Head();</div>
