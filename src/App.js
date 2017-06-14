@@ -13,33 +13,30 @@ const ground = ["flat", "flat", "flat", "finish" ]
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {started: false}
+    this.state = {instructionNum: 0, doingInstruction: false}
   }
 
   _handleClick(){
     console.log("started")
-    this.setState({started: true})
-    setTimeout( () => this.setState({started: false}), 1000 )
+    this.setState({doingInstruction: true})
+    setTimeout( () => this.setState({doingInstruction: false, instruction: this.state.instructionNum + 1 }), 1000 )
   }
   render() {
-    if(this.state.started){
-      //start animations
-      console.log("setting animations")
-    }
+    const instruction = instructions[ this.state.instructionNum ]
     return (
       <div className="App">
         <div className="Feedback">
           <svg height={100} className="GameBox">
             <svg>
-              <rect className={this.state.started ? "robot-head" : ""}x={15} y={50} width={10} height={10} fill="white" stroke="black"/>
-              <rect className={this.state.started ? "robot-body" : ""}x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
+              <rect className={this.state.doingInstruction ? "robot-move" : ""}x={15} y={50} width={10} height={10} fill="white" stroke="black"/>
+              <rect className={this.state.doingInstruction ? "robot-move" : ""}x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
               <circle className={"jump"} cx={20} cy={90} r={10} fill="white" stroke="black" />
-              <line className={this.state.started ? "spoke vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke-width="1" stroke="black"/>
-              <line className={this.state.started ? "spoke horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke-width="1" stroke="black"/>
+              <line className={this.state.doingInstruction ? "robot-wheel-spin vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke-width="1" stroke="black"/>
+              <line className={this.state.doingInstruction ? "robot-wheel-spin  horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke-width="1" stroke="black"/>
             </svg>
 
             {/* <rect className="level-item" x={150} y={0} width={20} height={20}/> */}
-            <rect className={this.state.started ? " main moved" : "main"} x={150} y={80} width={20} height={20}/>
+            <rect className={this.state.doingInstruction || this.state.instruction > 0 ? " main moved-1 " : "main"} x={150} y={80} width={20} height={20}/>
 
           </svg>
         </div>

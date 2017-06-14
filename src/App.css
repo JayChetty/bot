@@ -20,15 +20,15 @@
   animation-delay: 1s;
 }*/
 
-.robot-head{
+.robot-move{
   animation: move-wheel infinite 0.5s linear;
 }
 
-.robot-body{
+.robot-move{
   animation: move-wheel infinite 0.5s linear;
 }
 
-.spoke{
+.robot-wheel-spin{
   animation: spin infinite 5s linear;
 }
 
@@ -66,8 +66,16 @@
   transition-timing-function: linear;
 }
 
-.moved{
+.moved-1{
   transform: translateX(-30px);
+}
+
+.moved-2{
+  transform: translateX(-60px);
+}
+
+.moved-3{
+  transform: translateX(-90px);
 }
 
 
