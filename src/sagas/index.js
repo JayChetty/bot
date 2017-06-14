@@ -3,7 +3,7 @@ import {delay} from 'redux-saga'
 
 
 export function* startInstructions(action){
-  for (let instruction of action.instructions) {
+  for (let _ of action.instructions) {
     yield put( { type: "DO_INSTRUCTION" } )
     yield call(delay, 1000)
     yield put( { type: "FINISH_INSTRUCTION" } )

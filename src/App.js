@@ -29,8 +29,8 @@ class App extends Component {
               <rect className={this.props.doingInstruction ? "robot-move" : ""}x={15} y={50} width={10} height={10} fill="white" stroke="black"/>
               <rect className={this.props.doingInstruction ? "robot-move" : ""}x={10} y={60} width={20} height={20} fill="white" stroke="black"/>
               <circle className={"jump"} cx={20} cy={90} r={10} fill="white" stroke="black" />
-              <line className={this.props.doingInstruction ? "robot-wheel-spin vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke-width="1" stroke="black"/>
-              <line className={this.props.doingInstruction ? "robot-wheel-spin  horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke-width="1" stroke="black"/>
+              <line className={this.props.doingInstruction ? "robot-wheel-spin vertical-spoke" : ""} x1="20" y1="80" x2="20" y2="100" stroke="black"/>
+              <line className={this.props.doingInstruction ? "robot-wheel-spin  horizontal-spoke" : ""} x1="10" y1="90" x2="30" y2="90" stroke="black"/>
             </svg>
 
             {/* <rect className="level-item" x={150} y={0} width={20} height={20}/> */}
