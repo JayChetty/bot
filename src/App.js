@@ -12,20 +12,11 @@ const ground = ["flat", "flat", "flat", "finish" ]
 
 
 class App extends Component {
-  // constructor(props){
-  //   super(props)
-  //   this.state = {instructionNum: 0, doingInstruction: false}
-  // }
 
   _handleClick(){
-    console.log("started")
-    // this.setState({doingInstruction: true})
-    this.props.dispatch({type: "DO_INSTRUCTION"})
-    setTimeout( ()=>{
-      this.props.dispatch({type: "FINISH_INSTRUCTION"})
-      // this.setState({doingInstruction: false, instructionNum: this.state.instructionNum + 1 }
-    }, 1000 )
+    this.props.dispatch({type: "START_INSTRUCTIONS"})
   }
+
   render() {
     // const instruction = instructions[ this.state.instructionNum ]
     let numMoves = this.props.instruction//works for now
