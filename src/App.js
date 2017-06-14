@@ -19,10 +19,12 @@ class App extends Component {
   _handleClick(){
     console.log("started")
     this.setState({doingInstruction: true})
-    setTimeout( () => this.setState({doingInstruction: false, instruction: this.state.instructionNum + 1 }), 1000 )
+    setTimeout( () => this.setState({doingInstruction: false, instructionNum: this.state.instructionNum + 1 }), 1000 )
   }
   render() {
     const instruction = instructions[ this.state.instructionNum ]
+    let numMoves = this.state.instructionNum //works for now
+    if(this.state.doingInstruction){ numMoves++ }//doing instruction move to predicted position
     return (
       <div className="App">
         <div className="Feedback">
@@ -36,7 +38,7 @@ class App extends Component {
             </svg>
 
             {/* <rect className="level-item" x={150} y={0} width={20} height={20}/> */}
-            <rect className={this.state.doingInstruction || this.state.instruction > 0 ? " main moved-1 " : "main"} x={150} y={80} width={20} height={20}/>
+            <rect className={ `main moved-${numMoves}` } x={150} y={80} width={20} height={20}/>
 
           </svg>
         </div>

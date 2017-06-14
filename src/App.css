@@ -66,6 +66,10 @@
   transition-timing-function: linear;
 }
 
+.moved-0{
+  transform: translateX(0px);
+}
+
 .moved-1{
   transform: translateX(-30px);
 }
