@@ -7,14 +7,14 @@ import {connect} from 'react-redux'
 // import 'codemirror/mode/javascript/javascript'
 
 // const code = "Head head = new Head();Backpack backPack = new BackPack();Bot botty = new Bot(Head head, BackPack backpack);"
-const instructions = ["move", "move"]
+const instructions = ["move", "move", "move"]
 const ground = ["flat", "flat", "flat", "finish" ]
 
 
 class App extends Component {
 
   _handleClick(){
-    this.props.dispatch({type: "START_INSTRUCTIONS"})
+    this.props.dispatch({type: "START_INSTRUCTIONS", instructions: instructions})
   }
 
   render() {
